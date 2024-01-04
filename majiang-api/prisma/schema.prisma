@@ -1,0 +1,17 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // provider = "postgresql"
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//model Score {
+//  // Sqliteにはuuidがないので、仕方なくidを自動生成する
+//  id Int @default(autoincrement()) @id
+//}
