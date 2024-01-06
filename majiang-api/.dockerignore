@@ -3,3 +3,4 @@ Dockerfile
 node_modules
 src
 tsconfig.json
+sample_requests

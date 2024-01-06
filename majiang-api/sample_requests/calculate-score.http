@@ -1,0 +1,16 @@
+POST http://localhost:3000/calculate-score
+Content-Type: application/json
+
+{
+  "prevalentWind": 0,
+  "seatWind": 0,
+  "dora": [{
+    "value": "m7"
+  }],
+  "uradora": [{
+    "value": "m8"
+  }],
+  "hand": "m789p111789s13z55s2*",
+  "reach": false,
+  "ronpai": ""
+}
