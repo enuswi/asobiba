@@ -1,11 +1,11 @@
-import {calculateScore} from '../../usecases/calculateScore';
+import {CalculateScoreUsecase} from '../../modules/usecases/calculateUsecase';
 
 export class CalculateScoreController {
   static async handle(req: Request): Promise<Response> {
     const {prevalentWind, seatWind, dora, uradora, hand, reach, ronpai} = req;
     // TODO validation check
 
-    const score = await calculateScore.handle({
+    return await CalculateScoreUsecase.handle({
       prevalentWind,
       seatWind,
       dora: dora.map(item => item),
@@ -14,8 +14,6 @@ export class CalculateScoreController {
       reach,
       ronpai,
     });
-
-    return score as Response;
   }
 }
 
