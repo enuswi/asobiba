@@ -1,5 +1,5 @@
 import express from 'express';
-import {calculateScore} from './usecases/calculateScore';
+import {CalculateScoreController} from './api/calculate-score/calculateScoreController';
 const app: express.Express = express();
 
 app.use(express.json());
@@ -11,21 +11,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
 });
 
 // 点数計算用のエンドポイント
-app.post('/calculate-score', async (req: express.Request, res: express.Response) => {
-  const body = req.body;
-  // TODO validation check
-
-  const score = await calculateScore.handle({
-    prevalentWind: body.prevalentWind,
-    seatWind: body.seatWind,
-    dora: body.dora.map(item => item.value),
-    uradora: body.uradora.map(item => item.value),
-    hand: body.hand,
-    reach: body.reach,
-    ronpai: body.ronpai,
-  });
-  res.send(JSON.stringify(score));
-});
+app.post('/calculate-score', async (req: express.Request, res: express.Response) =>
+  res.send(await CalculateScoreController.handle(req.body))
+);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Start on port 3000.');
