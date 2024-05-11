@@ -1,5 +1,5 @@
 import express from 'express';
-import { calculateScore } from './usecases/calculateScore';
+import {calculateScore} from './usecases/calculateScore';
 const app: express.Express = express();
 
 app.use(express.json());
