@@ -6,17 +6,16 @@ export class CalculateScoreController {
     // TODO validation check
 
     const score = await calculateScore.handle({
-      prevalentWind: prevalentWind,
-      seatWind: seatWind,
+      prevalentWind,
+      seatWind,
       dora: dora.map(item => item),
       uradora: uradora.map(item => item),
-      hand: hand,
-      reach: reach,
-      ronpai: ronpai,
+      hand,
+      reach,
+      ronpai,
     });
 
-    console.log(score);
-    return JSON.stringify(score);
+    return score as Response;
   }
 }
 
@@ -31,5 +30,9 @@ type Request = {
 };
 
 type Response = {
-  //
+  hupai: {name: string; fanshu: number}[];
+  fu: number;
+  fanshu: number;
+  defen: number;
+  fenpei: number[];
 };

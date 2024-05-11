@@ -12,7 +12,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 
 // 点数計算用のエンドポイント
 app.post('/calculate-score', async (req: express.Request, res: express.Response) =>
-  res.send(await CalculateScoreController.handle(req.body))
+  res.send(JSON.stringify(await CalculateScoreController.handle(req.body)))
 );
 
 app.listen(process.env.PORT || 3000, () => {
